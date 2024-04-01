@@ -1,15 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
+
+	"github.com/pichuchen/simple-https-check/web"
 )
 
 func main() {
 	// make a http server and return "Hello World"
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello World")
-	})
+	http.HandleFunc("/", web.Handler)
 	http.ListenAndServe(":8080", nil)
 
 }
